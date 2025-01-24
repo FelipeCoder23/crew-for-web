@@ -1,6 +1,6 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-from crewai_tools import SeleniumScrapingTool
+from crewai_tools import WebsiteSearchTool
 from dotenv import load_dotenv
 import os
 
@@ -11,23 +11,24 @@ load_dotenv()
 class Prepmyinterview():
 	"""Prepmyinterview crew for IT job interview preparation"""
 
-	# Learn more about YAML configuration files here:
-	# Agents: https://docs.crewai.com/concepts/agents#yaml-configuration-recommended
-	# Tasks: https://docs.crewai.com/concepts/tasks#yaml-configuration-recommended
 	agents_config = 'config/agents.yaml'
 	tasks_config = 'config/tasks.yaml'
 
-	# If you would like to add tools to your agents, you can learn more about it here:
-	# https://docs.crewai.com/concepts/agents#agent-tools
+	def __init__(self):
+		# Create output directory if it doesn't exist
+		os.makedirs('output', exist_ok=True)
+		
+		# Clean output files at start
+		for file in os.listdir('output'):
+			if file.endswith('.md'):
+				os.remove(os.path.join('output', file))
+
 	@agent
 	def company_researcher(self) -> Agent:
 		return Agent(
 			config=self.agents_config['company_researcher'],
-			tools=[SeleniumScrapingTool(
-				headless=True,  # Run in headless mode
-				timeout=30,     # Increase timeout
-				ignore_ssl_errors=True  # Ignore SSL errors
-			)],
+			tools=[WebsiteSearchTool()],
+			llm_model="gpt-4",
 			verbose=True
 		)
 
@@ -35,6 +36,7 @@ class Prepmyinterview():
 	def job_analyzer(self) -> Agent:
 		return Agent(
 			config=self.agents_config['job_analyzer'],
+			llm_model="gpt-4",
 			verbose=True
 		)
 
@@ -42,6 +44,7 @@ class Prepmyinterview():
 	def interview_question_generator(self) -> Agent:
 		return Agent(
 			config=self.agents_config['interview_question_generator'],
+			llm_model="gpt-4",
 			verbose=True
 		)
 
@@ -49,12 +52,10 @@ class Prepmyinterview():
 	def answer_generator(self) -> Agent:
 		return Agent(
 			config=self.agents_config['answer_generator'],
+			llm_model="gpt-4",
 			verbose=True
 		)
 
-	# To learn more about structured task outputs, 
-	# task dependencies, and task callbacks, check out the documentation:
-	# https://docs.crewai.com/concepts/tasks#overview-of-a-task
 	@task
 	def company_research_task(self) -> Task:
 		return Task(
@@ -81,14 +82,9 @@ class Prepmyinterview():
 
 	@crew
 	def crew(self) -> Crew:
-		"""Creates the interview preparation crew"""
-		# To learn how to add knowledge sources to your crew, check out the documentation:
-		# https://docs.crewai.com/concepts/knowledge#what-is-knowledge
-
 		return Crew(
-			agents=self.agents, # Automatically created by the @agent decorator
-			tasks=self.tasks, # Automatically created by the @task decorator
+			agents=self.agents,
+			tasks=self.tasks,
 			process=Process.sequential,
-			verbose=True,
-			# process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
+			verbose=True
 		)

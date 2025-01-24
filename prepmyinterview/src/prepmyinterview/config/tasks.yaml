@@ -1,53 +1,51 @@
 company_research_task:
   description: >
-    Research and analyze {company_name} to understand:
-    - Company background and history
-    - Main products/services
-    - Company culture and values
-    - Recent news and developments
-    - Market position and competitors
+    Provide essential context about {company_name}:
+    - Industry sector and main business focus
+    - Type of organization (hospital, insurance, tech company, etc.)
+    - Key technologies or systems commonly used in this sector
+    - Main challenges and trends in the industry
   expected_output: >
-    A detailed markdown report containing company insights that will be valuable
-    for interview preparation and contextualizing questions.
+    A concise industry context report that helps understand the technical
+    requirements and business domain for the role.
   agent: company_researcher
-  output_file: interview_prep.md
+  output_file: output/01_company_analysis.md
 
 job_analysis_task:
   description: >
-    Analyze the provided job description for {job_title} at {company_name}:
-    - Extract technical requirements and skills
-    - Identify soft skills and cultural requirements
-    - List main responsibilities
-    - Note any specific industry knowledge required
-    Use the company research context to enhance the analysis.
+    Based on the industry context for {job_title} at {company_name}:
+    - Focus on data science skills needed in healthcare/insurance
+    - Identify which data science techniques are most relevant
+    - Map how ML/AI can solve industry-specific challenges
+    - Note data privacy and healthcare regulations that affect DS work
   expected_output: >
-    A structured markdown document containing categorized job requirements,
-    skills, and responsibilities.
+    Analysis of how data science specifically applies to this healthcare context.
   agent: job_analyzer
-  append_to_file: interview_prep.md
+  depends_on: ["company_research_task"]
+  output_file: output/02_job_analysis.md
 
 question_generation_task:
   description: >
-    Using the job analysis and company research, generate:
-    - Technical questions based on required skills and technologies
-    - Behavioral questions focused on responsibilities and company culture
-    - Questions about the company that show research and interest
-    Make questions specific to {job_title} role at {company_name}.
+    Using the job analysis context, generate data science questions specific to healthcare:
+    - Questions about handling medical claims data
+    - ML scenarios for health risk prediction
+    - Data privacy and compliance questions
+    - Healthcare-specific data analysis challenges
   expected_output: >
-    A comprehensive list of interview questions categorized by type
-    (technical, behavioral, company-specific) in markdown format.
+    Technical questions that combine data science expertise with healthcare domain knowledge.
   agent: interview_question_generator
-  append_to_file: interview_prep.md
+  depends_on: ["job_analysis_task"]
+  output_file: output/03_interview_questions.md
 
 answer_generation_task:
   description: >
-    Create example answers for the generated questions:
-    - Technical answers with code examples where appropriate
-    - STAR-formatted answers for behavioral questions
-    - Strategic answers about company knowledge
-    Ensure answers align with {company_name}'s culture and {job_title} requirements.
+    Create example answers showing healthcare data science expertise:
+    - Code examples using medical data scenarios
+    - ML solutions for healthcare challenges
+    - Data privacy compliance approaches
+    - Healthcare analytics best practices
   expected_output: >
-    A detailed markdown document with example answers for each question,
-    including code snippets and STAR-formatted responses.
+    Sample answers that demonstrate both data science skills and healthcare domain knowledge.
   agent: answer_generator
-  append_to_file: interview_prep.md
+  depends_on: ["question_generation_task"]
+  output_file: output/04_interview_answers.md
