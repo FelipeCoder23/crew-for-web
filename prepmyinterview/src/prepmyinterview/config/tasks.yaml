@@ -10,6 +10,7 @@ company_research_task:
     A detailed markdown report containing company insights that will be valuable
     for interview preparation and contextualizing questions.
   agent: company_researcher
+  output_file: interview_prep.md
 
 job_analysis_task:
   description: >
@@ -23,6 +24,7 @@ job_analysis_task:
     A structured markdown document containing categorized job requirements,
     skills, and responsibilities.
   agent: job_analyzer
+  append_to_file: interview_prep.md
 
 question_generation_task:
   description: >
@@ -35,6 +37,7 @@ question_generation_task:
     A comprehensive list of interview questions categorized by type
     (technical, behavioral, company-specific) in markdown format.
   agent: interview_question_generator
+  append_to_file: interview_prep.md
 
 answer_generation_task:
   description: >
@@ -47,4 +50,4 @@ answer_generation_task:
     A detailed markdown document with example answers for each question,
     including code snippets and STAR-formatted responses.
   agent: answer_generator
-  output_file: interview_prep.md
+  append_to_file: interview_prep.md
