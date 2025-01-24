@@ -1,17 +1,50 @@
-research_task:
+company_research_task:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
+    Research and analyze {company_name} to understand:
+    - Company background and history
+    - Main products/services
+    - Company culture and values
+    - Recent news and developments
+    - Market position and competitors
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    A detailed markdown report containing company insights that will be valuable
+    for interview preparation and contextualizing questions.
+  agent: company_researcher
 
-reporting_task:
+job_analysis_task:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Analyze the provided job description for {job_title} at {company_name}:
+    - Extract technical requirements and skills
+    - Identify soft skills and cultural requirements
+    - List main responsibilities
+    - Note any specific industry knowledge required
+    Use the company research context to enhance the analysis.
   expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    A structured markdown document containing categorized job requirements,
+    skills, and responsibilities.
+  agent: job_analyzer
+
+question_generation_task:
+  description: >
+    Using the job analysis and company research, generate:
+    - Technical questions based on required skills and technologies
+    - Behavioral questions focused on responsibilities and company culture
+    - Questions about the company that show research and interest
+    Make questions specific to {job_title} role at {company_name}.
+  expected_output: >
+    A comprehensive list of interview questions categorized by type
+    (technical, behavioral, company-specific) in markdown format.
+  agent: interview_question_generator
+
+answer_generation_task:
+  description: >
+    Create example answers for the generated questions:
+    - Technical answers with code examples where appropriate
+    - STAR-formatted answers for behavioral questions
+    - Strategic answers about company knowledge
+    Ensure answers align with {company_name}'s culture and {job_title} requirements.
+  expected_output: >
+    A detailed markdown document with example answers for each question,
+    including code snippets and STAR-formatted responses.
+  agent: answer_generator
+  output_file: interview_prep.md
