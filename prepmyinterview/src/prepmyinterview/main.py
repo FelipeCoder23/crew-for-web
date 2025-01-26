@@ -7,8 +7,6 @@ def run():
     Run the crew.
     """
     inputs = {
-        'company_name': 'Isapre Consalud',
-        'job_title': 'Data Scientist',
         'job_description': """
         Isapre Consalud
         Data Scientist 

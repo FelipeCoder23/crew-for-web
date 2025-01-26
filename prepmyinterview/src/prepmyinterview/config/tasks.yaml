@@ -1,14 +1,51 @@
+job_parsing_task:
+  description: >
+    Analyze the provided job description and create a detailed report with the following sections:
+
+    1. COMPANY INFORMATION
+    - Company Name: {Extraído}
+    - Industry Sector: {Extraído}
+    - Company Type: {Extraído}
+    - Company Culture: {Análisis de valores y cultura}
+    
+    2. POSITION DETAILS
+    - Job Title: {Extraído}
+    - Seniority Level: {Análisis basado en requisitos}
+    - Work Mode: {Remote/Hybrid/Office}
+    - Location: {Extraído}
+    
+    3. TECHNICAL REQUIREMENTS
+    - Core Skills: {Lista de skills principales}
+    - Technical Stack: {Tecnologías mencionadas}
+    - Experience Level: {Años y tipo de experiencia}
+    
+    4. ADDITIONAL CONTEXT
+    - Team Structure: {Análisis del contexto de equipo}
+    - Project Focus: {Áreas de trabajo principales}
+    - Industry-Specific Requirements: {Requisitos específicos del sector}
+
+    Format the output as a structured markdown document with clear sections and bullet points.
+    Also include a summary section at the top with the key variables that will be used for interpolation.
+  expected_output: >
+    A detailed markdown document analyzing all aspects of the job posting,
+    with a special focus on extracting structured information that can be
+    used by other agents. Include both the raw extracted data and your analysis
+    of implicit requirements and context.
+  agent: job_parser
+  output_file: output/00_job_parsing.md
+
 company_research_task:
   description: >
-    Provide essential context about {company_name}:
-    - Industry sector and main business focus
-    - Type of organization (hospital, insurance, tech company, etc.)
-    - Key technologies or systems commonly used in this sector
-    - Main challenges and trends in the industry
+    Using the parsed information, provide essential context about the company:
+    - Industry sector: {industry_sector}
+    - Company type: {company_type}
+    - Key technologies: {tech_stack}
+    - Main challenges in this sector
   expected_output: >
     A concise industry context report that helps understand the technical
     requirements and business domain for the role.
   agent: company_researcher
+  depends_on: ["job_parsing_task"]
   output_file: output/01_company_analysis.md
 
 job_analysis_task:
