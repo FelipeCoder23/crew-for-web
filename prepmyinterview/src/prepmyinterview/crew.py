@@ -24,6 +24,14 @@ class Prepmyinterview():
 				os.remove(os.path.join('output', file))
 
 	@agent
+	def job_parser(self) -> Agent:
+		return Agent(
+			config=self.agents_config['job_parser'],
+			llm_model="gpt-4",
+			verbose=True
+		)
+
+	@agent
 	def company_researcher(self) -> Agent:
 		return Agent(
 			config=self.agents_config['company_researcher'],
@@ -78,6 +86,12 @@ class Prepmyinterview():
 	def answer_generation_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['answer_generation_task']
+		)
+
+	@task
+	def job_parsing_task(self) -> Task:
+		return Task(
+			config=self.tasks_config['job_parsing_task']
 		)
 
 	@crew
