@@ -1,68 +1,62 @@
-job_parsing_task:
+extract_task:
   description: >
-    Analyze the provided job description and create a detailed report with the following sections:
-
+    Analiza la siguiente descripción de trabajo:
     {job_description}
-
-    Format the output as a structured markdown document with clear sections and bullet points.
-    Also include a summary section at the top with the key variables that will be used for interpolation.
+    
+    Extrae y estructura la siguiente información:
+    1. Título del puesto
+    2. Empresa
+    3. Requisitos técnicos
+    4. Responsabilidades
+    5. Beneficios
   expected_output: >
-    A detailed markdown document analyzing all aspects of the job posting,
-    with a special focus on extracting structured information that can be
-    used by other agents. Include both the raw extracted data and your analysis
-    of implicit requirements and context.
-  agent: job_parser
-  output_file: output/00_job_parsing.md
+    # Análisis del Puesto
 
-company_research_task:
+    ## Información General
+    - Puesto: [título]
+    - Empresa: [nombre]
+    - Ubicación: [ubicación]
+
+    ## Requisitos Técnicos
+    - [lista de habilidades y tecnologías]
+
+    ## Responsabilidades
+    - [lista de responsabilidades]
+
+    ## Beneficios
+    - [lista de beneficios]
+
+research_task:
   description: >
-    Using the parsed information from the previous task, conduct research about the company:
-    - Industry sector
-    - Company type
-    - Key technologies
-    - Main challenges in the sector
+    Basado en el análisis anterior, genera preguntas técnicas específicas 
+    que evalúen las habilidades requeridas para el puesto.
+    Enfócate en los requisitos técnicos y responsabilidades identificadas.
   expected_output: >
-    A concise industry context report that helps understand the technical
-    requirements and business domain for the role.
-  agent: company_researcher
-  depends_on: ["job_parsing_task"]
-  output_file: output/01_company_analysis.md
+    # Preguntas para la Entrevista
 
-job_analysis_task:
-  description: >
-    Based on the industry context from the previous tasks:
-    - Focus on the required skills needed in the industry
-    - Identify which techniques are most relevant for the role
-    - Map how technology can solve industry-specific challenges
-    - Note any regulations and compliance requirements
-  expected_output: >
-    Analysis of how the required skills specifically apply to this industry context.
-  agent: job_analyzer
-  depends_on: ["company_research_task"]
-  output_file: output/02_job_analysis.md
+    ## Preguntas Técnicas
+    1. [pregunta sobre habilidad específica]
+    2. [pregunta sobre tecnología requerida]
+    3. [pregunta sobre experiencia relevante]
 
-question_generation_task:
-  description: >
-    Using the job analysis context from previous tasks:
-    - Questions about handling industry-specific data
-    - Technical scenarios for the role
-    - Questions about core skills
-    - Industry-specific challenges
-  expected_output: >
-    Technical questions that combine required expertise with industry domain knowledge.
-  agent: interview_question_generator
-  depends_on: ["job_analysis_task"]
-  output_file: output/03_interview_questions.md
+    ## Preguntas sobre Proyectos
+    1. [pregunta sobre implementación]
+    2. [pregunta sobre resolución de problemas]
+    3. [pregunta sobre metodología]
 
-answer_generation_task:
+interview_task:
   description: >
-    Create example answers based on all previous analysis:
-    - Code examples using industry scenarios
-    - Technical solutions for industry challenges
-    - Best practices for core skills
-    - Industry-specific implementation approaches
+    Proporciona respuestas modelo para las preguntas técnicas generadas.
+    Incluye ejemplos prácticos y mejores prácticas del sector.
   expected_output: >
-    Sample answers that demonstrate both technical skills and industry domain knowledge.
-  agent: answer_generator
-  depends_on: ["question_generation_task"]
-  output_file: output/04_interview_answers.md
+    # Guía de Respuestas
+
+    ## Respuestas Técnicas
+    1. [respuesta detallada con ejemplo]
+    2. [respuesta detallada con ejemplo]
+    3. [respuesta detallada con ejemplo]
+
+    ## Consejos para la Entrevista
+    - [consejo sobre cómo estructurar respuestas]
+    - [consejo sobre puntos clave]
+    - [consejo sobre ejemplos a mencionar]

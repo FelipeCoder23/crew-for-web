@@ -1,104 +1,100 @@
-from crewai import Agent, Crew, Process, Task
-from crewai.project import CrewBase, agent, crew, task
-from crewai_tools import WebsiteSearchTool
+from crewai import Agent, Crew, Task
+from crewai.project import CrewBase, agent, task
+from textwrap import dedent
 from dotenv import load_dotenv
 import os
 
-# Configure environment
+# Cargar variables de entorno
 load_dotenv()
 
+# Verificar API key
+if not os.getenv("OPENAI_API_KEY"):
+	raise ValueError("Por favor configura OPENAI_API_KEY en el archivo .env")
+
 @CrewBase
-class Prepmyinterview():
-	"""Prepmyinterview crew for IT job interview preparation"""
-
-	agents_config = 'config/agents.yaml'
-	tasks_config = 'config/tasks.yaml'
-
+class Prepmyinterview:
 	def __init__(self):
-		# Create output directory if it doesn't exist
+		self.agents_config = self._load_config('agents.yaml')
+		self.tasks_config = self._load_config('tasks.yaml')
+		# Crear directorio output si no existe
 		os.makedirs('output', exist_ok=True)
-		
-		# Clean output files at start
-		for file in os.listdir('output'):
-			if file.endswith('.md'):
-				os.remove(os.path.join('output', file))
+
+	def _load_config(self, filename):
+		import yaml
+		import os
+		config_path = os.path.join(os.path.dirname(__file__), 'config', filename)
+		with open(config_path, 'r', encoding='utf-8') as f:
+			return yaml.safe_load(f)
 
 	@agent
-	def job_parser(self) -> Agent:
+	def extractor(self):
 		return Agent(
-			config=self.agents_config['job_parser'],
-			llm_model="gpt-4",
-			verbose=True
-		)
-
-	@agent
-	def company_researcher(self) -> Agent:
-		return Agent(
-			config=self.agents_config['company_researcher'],
-			tools=[WebsiteSearchTool()],
-			llm_model="gpt-4",
+			role=self.agents_config['extractor']['role'],
+			goal=self.agents_config['extractor']['goal'],
+			backstory=self.agents_config['extractor']['backstory'],
+			allow_delegation=False,
 			verbose=True
 		)
 
 	@agent
-	def job_analyzer(self) -> Agent:
+	def researcher(self):
 		return Agent(
-			config=self.agents_config['job_analyzer'],
-			llm_model="gpt-4",
+			role=self.agents_config['researcher']['role'],
+			goal=self.agents_config['researcher']['goal'],
+			backstory=self.agents_config['researcher']['backstory'],
+			allow_delegation=False,
 			verbose=True
 		)
 
 	@agent
-	def interview_question_generator(self) -> Agent:
+	def interviewer(self):
 		return Agent(
-			config=self.agents_config['interview_question_generator'],
-			llm_model="gpt-4",
-			verbose=True
-		)
-
-	@agent
-	def answer_generator(self) -> Agent:
-		return Agent(
-			config=self.agents_config['answer_generator'],
-			llm_model="gpt-4",
+			role=self.agents_config['interviewer']['role'],
+			goal=self.agents_config['interviewer']['goal'],
+			backstory=self.agents_config['interviewer']['backstory'],
+			allow_delegation=False,
 			verbose=True
 		)
 
 	@task
-	def company_research_task(self) -> Task:
+	def extract_task(self):
 		return Task(
-			config=self.tasks_config['company_research_task']
+			description=self.tasks_config['extract_task']['description'],
+			expected_output=self.tasks_config['extract_task']['expected_output'],
+			agent=self.extractor(),
+			output_file='output/00_extract.md'
 		)
 
 	@task
-	def job_analysis_task(self) -> Task:
+	def research_task(self):
 		return Task(
-			config=self.tasks_config['job_analysis_task']
+			description=self.tasks_config['research_task']['description'],
+			expected_output=self.tasks_config['research_task']['expected_output'],
+			agent=self.researcher(),
+			output_file='output/01_research.md'
 		)
 
 	@task
-	def question_generation_task(self) -> Task:
+	def interview_task(self):
 		return Task(
-			config=self.tasks_config['question_generation_task']
+			description=self.tasks_config['interview_task']['description'],
+			expected_output=self.tasks_config['interview_task']['expected_output'],
+			agent=self.interviewer(),
+			output_file='output/02_interview.md'
 		)
 
-	@task
-	def answer_generation_task(self) -> Task:
-		return Task(
-			config=self.tasks_config['answer_generation_task']
-		)
-
-	@task
-	def job_parsing_task(self) -> Task:
-		return Task(
-			config=self.tasks_config['job_parsing_task']
-		)
-
-	@crew
-	def crew(self) -> Crew:
-		return Crew(
-			agents=self.agents,
-			tasks=self.tasks,
-			process=Process.sequential,
+	def crew(self):
+		crew = Crew(
+			agents=[
+				self.extractor(),
+				self.researcher(),
+				self.interviewer()
+			],
+			tasks=[
+				self.extract_task(),
+				self.research_task(),
+				self.interview_task()
+			],
 			verbose=True
 		)
+		return crew
