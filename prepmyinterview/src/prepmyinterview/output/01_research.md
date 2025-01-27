@@ -1,11 +1,11 @@
 # Preguntas para la Entrevista
 
-## Preguntas Técnicas  
-1. ¿Puede describir su experiencia en la migración de bases de datos y modelos de datos? ¿Cuáles fueron los principales desafíos que enfrentó durante estos proyectos?  
-2. ¿Qué experiencia tiene trabajando con Azure Databricks y cómo lo ha utilizado para mejorar procesos de Data Engineering en sus proyectos anteriores?  
-3. ¿Cuáles son los proyectos más significativos en los que ha utilizado Python y PySpark, y cómo contribuyó su experiencia técnica al éxito de esos proyectos?
+## Preguntas Técnicas 
+1. ¿Puede explicar cómo modelarías datos para un proyecto de aprendizaje automático? ¿Qué factores considerarías en el diseño del modelo?
+2. ¿Qué diferencias claves existen entre algoritmos de aprendizaje supervisado y no supervisado? Proporcione ejemplos de cada uno y cuándo los usaría.
+3. Describa una situación en la que haya trabajado con un conjunto de datos extremadamente grande. ¿Qué herramientas utilizó para manejarlo y cuál fue el resultado?
 
-## Preguntas sobre Proyectos  
-1. Relate un proyecto en el que haya implementado soluciones de migración de datos. ¿Qué metodología siguió y por qué eligió esa metodología en particular?  
-2. Describa una situación en la que se encontró con un problema inesperado durante un proyecto de Data Engineering. ¿Cómo lo resolvió y qué aprendió de esa experiencia?  
-3. ¿Cuál ha sido su papel en la gestión de proyectos en entornos Agile? Proporcione un ejemplo de cómo ha utilizado Scrum o Kanban para optimizar un proceso de desarrollo en sus proyectos previos.
+## Preguntas sobre Proyectos 
+1. Relate una experiencia pasada donde implementó un modelo de aprendizaje automático. ¿Qué pasos siguió desde la concepción hasta la implementación final, y qué desafíos encontró?
+2. Cuéntenos sobre un problema difícil que haya tenido que resolver en un proyecto de aprendizaje automático. ¿Cómo abordó el problema y qué soluciones consideró?
+3. ¿Qué metodología considera más efectiva para proyectos de desarrollo de modelos en el entorno de trabajo? Proponga un ejemplo de cómo aplicaría una metodología ágil, como Scrum, a un proyecto específico en Machine Learning.

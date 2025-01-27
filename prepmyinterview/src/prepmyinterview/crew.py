@@ -47,6 +47,16 @@ class Prepmyinterview:
 		)
 
 	@agent
+	def hr_specialist(self):
+		return Agent(
+			role=self.agents_config['hr_specialist']['role'],
+			goal=self.agents_config['hr_specialist']['goal'],
+			backstory=self.agents_config['hr_specialist']['backstory'],
+			allow_delegation=False,
+			verbose=True
+		)
+
+	@agent
 	def interviewer(self):
 		return Agent(
 			role=self.agents_config['interviewer']['role'],
@@ -67,33 +77,59 @@ class Prepmyinterview:
 
 	@task
 	def research_task(self):
+		extract_output = self.extract_task()
 		return Task(
 			description=self.tasks_config['research_task']['description'],
 			expected_output=self.tasks_config['research_task']['expected_output'],
 			agent=self.researcher(),
+			context=[extract_output],
 			output_file='output/01_research.md'
 		)
 
 	@task
+	def hr_task(self):
+		extract_output = self.extract_task()
+		return Task(
+			description=self.tasks_config['hr_task']['description'],
+			expected_output=self.tasks_config['hr_task']['expected_output'],
+			agent=self.hr_specialist(),
+			context=[extract_output],
+			output_file='output/02_hr.md'
+		)
+
+	@task
 	def interview_task(self):
+		extract_output = self.extract_task()
+		research_output = self.research_task()
+		hr_output = self.hr_task()
 		return Task(
 			description=self.tasks_config['interview_task']['description'],
 			expected_output=self.tasks_config['interview_task']['expected_output'],
 			agent=self.interviewer(),
-			output_file='output/02_interview.md'
+			context=[extract_output, research_output, hr_output],
+			output_file='output/03_interview.md'
 		)
 
 	def crew(self):
+		# Crear las tareas
+		extract = self.extract_task()
+		research = self.research_task()
+		hr = self.hr_task()
+		interview = self.interview_task()
+
+		# Configurar la tripulación con la secuencia correcta
 		crew = Crew(
 			agents=[
 				self.extractor(),
 				self.researcher(),
+				self.hr_specialist(),
 				self.interviewer()
 			],
 			tasks=[
-				self.extract_task(),
-				self.research_task(),
-				self.interview_task()
+				extract,
+				research,
+				hr,
+				interview
 			],
 			verbose=True
 		)

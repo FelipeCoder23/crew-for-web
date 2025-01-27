@@ -20,12 +20,23 @@ def process_job_posting(job_posting):
         output_files = [
             'output/00_extract.md',
             'output/01_research.md',
-            'output/02_interview.md'
+            'output/02_hr.md',
+            'output/03_interview.md'
         ]
         
         combined_output = ""
         for file_path in output_files:
-            section_name = file_path.split('/')[-1].replace('.md', '').replace('_', ' ').title()
+            # Personalizar los nombres de las secciones
+            section_names = {
+                '00_extract': 'Análisis del Puesto',
+                '01_research': 'Preguntas Técnicas',
+                '02_hr': 'Preguntas de RRHH',
+                '03_interview': 'Respuestas Modelo'
+            }
+            
+            file_key = file_path.split('/')[-1].replace('.md', '')
+            section_name = section_names.get(file_key, file_key.replace('_', ' ').title())
+            
             try:
                 with open(file_path, 'r', encoding='utf-8') as f:
                     # Add a section header

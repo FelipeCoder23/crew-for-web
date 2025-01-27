@@ -44,19 +44,46 @@ research_task:
     2. [pregunta sobre resolución de problemas]
     3. [pregunta sobre metodología]
 
+hr_task:
+  description: >
+    Basado en el análisis del puesto y la cultura de la empresa,
+    genera preguntas de comportamiento y ajuste cultural que evalúen
+    las habilidades blandas y el potencial del candidato.
+  expected_output: >
+    # Preguntas de RRHH
+
+    ## Preguntas de Comportamiento
+    1. [pregunta sobre trabajo en equipo]
+    2. [pregunta sobre manejo de conflictos]
+    3. [pregunta sobre liderazgo]
+
+    ## Preguntas de Ajuste Cultural
+    1. [pregunta sobre valores]
+    2. [pregunta sobre motivación]
+    3. [pregunta sobre desarrollo profesional]
+
 interview_task:
   description: >
-    Proporciona respuestas modelo para las preguntas técnicas generadas.
-    Incluye ejemplos prácticos y mejores prácticas del sector.
+    Basado en las preguntas técnicas y de RRHH generadas anteriormente,
+    proporciona respuestas modelo detalladas que demuestren experiencia y competencia.
+    Las respuestas deben incluir ejemplos concretos y seguir las mejores prácticas del sector.
+    
+    Asegúrate de cubrir tanto las preguntas técnicas como las de comportamiento,
+    y proporciona consejos específicos para cada tipo de pregunta.
   expected_output: >
     # Guía de Respuestas
 
     ## Respuestas Técnicas
-    1. [respuesta detallada con ejemplo]
-    2. [respuesta detallada con ejemplo]
-    3. [respuesta detallada con ejemplo]
+    1. [respuesta detallada con ejemplo técnico]
+    2. [respuesta detallada con ejemplo técnico]
+    3. [respuesta detallada con ejemplo técnico]
+
+    ## Respuestas de Comportamiento
+    1. [respuesta detallada con ejemplo de situación]
+    2. [respuesta detallada con ejemplo de situación]
+    3. [respuesta detallada con ejemplo de situación]
 
     ## Consejos para la Entrevista
-    - [consejo sobre cómo estructurar respuestas]
-    - [consejo sobre puntos clave]
-    - [consejo sobre ejemplos a mencionar]
+    - [consejos para respuestas técnicas]
+    - [consejos para respuestas de comportamiento]
+    - [consejos generales]

@@ -1,28 +1,41 @@
 # Análisis del Puesto
-## Información General  
-- Puesto: Data Engineer Databricks  
-- Empresa: Tata Consultancy Services  
-- Ubicación: Región Metropolitana de Santiago, Chile  
+## Información General 
+- Puesto: Machine Learning Engineer  
+- Empresa: Deloitte  
+- Ubicación: Gran Santiago, Región Metropolitana de Santiago, Chile
 
 ## Requisitos Técnicos  
-- Experiencia en proyectos de migraciones de base de datos y modelos.  
-- Mínimo 4 años en desarrollo y programación en ámbitos de Data Engineering y Data Science.  
-- Experiencia en gestión y/o desarrollo de proyectos en el sector de Banca, Seguros y/o Servicios Financieros.  
-- Conocimientos en metodologías Agile y Tradicional (Scrum, Kanban, Waterfall).  
-- Especialización en: Azure Databricks, Datafactory, Python, PySpark, Cloudera y SQL.  
-- Conocimientos deseables en: Spark, Scala, Kafka, MongoDB, Cloudera, Streaming, SAS, SAP ERP, Jira, Confluence, Event Hubs, Control M, Git, Jenkins.  
-- Se considera altamente deseable contar con alguna certificación.  
+- Fuerte comprensión de conceptos de bases de datos y modelado de datos  
+- Conocimiento profundo de algoritmos de aprendizaje automático y técnicas estadísticas  
+- Capacidad para trabajar con grandes conjuntos de datos y realizar análisis exploratorios  
+- Habilidades de resolución de problemas y pensamiento analítico  
+- Excelentes habilidades de comunicación y capacidad para trabajar en equipo  
+- Profesional titulado en área informática, estadística o matemática  
+- Inglés nivel B2 intermedio/avanzado (Excluyente)  
+- 2 o más años de experiencia práctica en los requisitos expuestos  
+- Experiencia con Python, R, Java y con manejo de bases de datos relacionales y no relacionales  
+- Bibliotecas de aprendizaje automático: TensorFlow, Scikit-learn, PyTorch  
+- Experiencia en el desarrollo y despliegue de modelos en entornos de producción; deseable experiencia en MLOps  
+- Experiencia con desarrollos en las principales nubes (GCP, AWS, Azure)  
+- Experiencia trabajando en proyectos con mindset ágiles (Scrum, Kanban, Lean, etc.) (deseable)  
+- Experiencia con versionamiento GIT  
 
 ## Responsabilidades  
-- Brindar servicios a un cliente multinacional líder en el mercado de Servicios Financieros.  
-- Análisis e implementación de migraciones de datos.  
-- Desarrollo de modelos y base de datos.  
+- Entregar soluciones que mejoren la toma de decisiones, optimizar procesos, y ofrecer soluciones más personalizadas a los clientes  
+- Desarrollar e implementar modelos de aprendizaje automático para resolver problemas empresariales  
+- Realizar análisis de datos y exploración de características para identificar patrones y tendencias  
+- Diseñar y construir pipelines de datos para la preparación y limpieza de datos  
+- Optimizar y ajustar los modelos de aprendizaje automático para mejorar su rendimiento  
+- Evaluar y validar los modelos  
+- Colaborar con equipos de ingeniería de software para implementar modelos en producción  
+- Mantenerse actualizado sobre las últimas técnicas y avances en el campo del aprendizaje automático  
 
 ## Beneficios  
-- Seguro complementario de salud y vida con cobertura en atención psicológica, kinesiología, psicopedagogía y fonoaudiología.  
-- Convenios ópticos y dentales.  
-- Asesoría nutricional, deportiva y del sueño.  
-- Portales de capacitación y desarrollo de plan de carrera.  
-- Reembolso en certificaciones para potenciar el desarrollo profesional.  
-- Día libre por cumpleaños.  
-- Excelentes herramientas de trabajo y muchos más.
+- Jornada de trabajo híbrida  
+- Día de cumpleaños libre  
+- Día libre por mudanza  
+- Actividades de voluntariado  
+- Permiso sin goce de sueldo “Cumple tus sueños” (año sabático)  
+- Deloitte Days (5 días libres al año)  
+- Cuida de los tuyos, licencias para el cuidado de tus familiares  
+- Equipos deportivos
