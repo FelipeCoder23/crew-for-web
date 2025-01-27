@@ -1,41 +1,40 @@
-# Análisis del Puesto
-## Información General 
-- Puesto: Machine Learning Engineer  
-- Empresa: Deloitte  
-- Ubicación: Gran Santiago, Región Metropolitana de Santiago, Chile
+# Análisis del Puesto  
+## Información General  
+- Puesto: Data Scientist  
+- Empresa: Accenture Chile  
+- Ubicación: Gran Santiago, Región Metropolitana de Santiago, Chile  
 
 ## Requisitos Técnicos  
-- Fuerte comprensión de conceptos de bases de datos y modelado de datos  
-- Conocimiento profundo de algoritmos de aprendizaje automático y técnicas estadísticas  
-- Capacidad para trabajar con grandes conjuntos de datos y realizar análisis exploratorios  
-- Habilidades de resolución de problemas y pensamiento analítico  
-- Excelentes habilidades de comunicación y capacidad para trabajar en equipo  
-- Profesional titulado en área informática, estadística o matemática  
-- Inglés nivel B2 intermedio/avanzado (Excluyente)  
-- 2 o más años de experiencia práctica en los requisitos expuestos  
-- Experiencia con Python, R, Java y con manejo de bases de datos relacionales y no relacionales  
-- Bibliotecas de aprendizaje automático: TensorFlow, Scikit-learn, PyTorch  
-- Experiencia en el desarrollo y despliegue de modelos en entornos de producción; deseable experiencia en MLOps  
-- Experiencia con desarrollos en las principales nubes (GCP, AWS, Azure)  
-- Experiencia trabajando en proyectos con mindset ágiles (Scrum, Kanban, Lean, etc.) (deseable)  
-- Experiencia con versionamiento GIT  
+- Al menos 2 años de experiencia en cargos relacionados a Ciencia de Datos.  
+- Al menos 2 años de experiencia con Python (Pandas, Pyspark, xgboost, scikit-learn).  
+- Conocimientos en SQL.  
+- Experiencia en Azure DataBricks.  
+- Experiencia en clientes del rubro minero.  
+- **Bonus Points:**  
+  - Conocimiento del proceso minero.  
+  - GIT (Azure DevOps).  
+  - Metodología Ágil (SCRUM + KANBAN).  
 
 ## Responsabilidades  
-- Entregar soluciones que mejoren la toma de decisiones, optimizar procesos, y ofrecer soluciones más personalizadas a los clientes  
-- Desarrollar e implementar modelos de aprendizaje automático para resolver problemas empresariales  
-- Realizar análisis de datos y exploración de características para identificar patrones y tendencias  
-- Diseñar y construir pipelines de datos para la preparación y limpieza de datos  
-- Optimizar y ajustar los modelos de aprendizaje automático para mejorar su rendimiento  
-- Evaluar y validar los modelos  
-- Colaborar con equipos de ingeniería de software para implementar modelos en producción  
-- Mantenerse actualizado sobre las últimas técnicas y avances en el campo del aprendizaje automático  
+- Aplicación de técnicas avanzadas de análisis de datos para extraer información relevante y apoyar en la toma de decisiones estratégicas.  
+- Desarrollo y entrenamiento de modelos de aprendizaje automático para predecir y automatizar procesos basados en datos.  
+- Programación y creación de soluciones de software orientadas a optimizar procesos y facilitar la implementación de modelos y análisis.  
+- Presentación clara y comprensible de resultados y recomendaciones analíticas a los diferentes interesados, garantizando que la información técnica sea accesible para una audiencia no técnica.  
 
 ## Beneficios  
-- Jornada de trabajo híbrida  
-- Día de cumpleaños libre  
-- Día libre por mudanza  
-- Actividades de voluntariado  
-- Permiso sin goce de sueldo “Cumple tus sueños” (año sabático)  
-- Deloitte Days (5 días libres al año)  
-- Cuida de los tuyos, licencias para el cuidado de tus familiares  
-- Equipos deportivos
+- Desarrollo de carrera.  
+- Jornadas Flex.  
+- Más de 40 mil capacitaciones y cursos disponibles (online y presencial).  
+- Bibliotecas, libros y podcasts.  
+- Programa de idiomas.  
+- Certificaciones gratuitas mediante nuestros partners (más de 900 certificados en Chile).  
+- GenAI Academy, con programas exclusivos para Accenture.  
+- Reconocidos por Great Place To Work Chile 2023 en el puesto #10 entre las mejores compañías para trabajar de más de 1.000 colaboradores.  
+- Experiencia de onboarding global en el Metaverso a nivel LATAM.  
+- Bonos y aguinaldos.  
+- Seguro complementario de salud (sin deducible ni copago).  
+- Día de cumpleaños libre.  
+- Licencias de Paternidad & Maternidad Extendida.  
+- Red global de conocimiento.  
+- Elegida la compañía más diversa e inclusiva del mundo, según el Índice de Diversidad e Inclusión de Refinitiv.  
+- Compromiso con la sostenibilidad como motor de cambio.
