@@ -1,5 +1,6 @@
 from crewai import Agent, Crew, Task
-from crewai.project import CrewBase, agent, task
+from crewai.project import CrewBase, agent, task, crew
+from crewai.process import Process
 from textwrap import dedent
 from dotenv import load_dotenv
 import os
@@ -110,27 +111,12 @@ class Prepmyinterview:
 			output_file='output/03_interview.md'
 		)
 
-	def crew(self):
-		# Crear las tareas
-		extract = self.extract_task()
-		research = self.research_task()
-		hr = self.hr_task()
-		interview = self.interview_task()
-
-		# Configurar la tripulación con la secuencia correcta
-		crew = Crew(
-			agents=[
-				self.extractor(),
-				self.researcher(),
-				self.hr_specialist(),
-				self.interviewer()
-			],
-			tasks=[
-				extract,
-				research,
-				hr,
-				interview
-			],
+	@crew
+	def crew(self) -> Crew:
+		"""Crea la tripulación con la secuencia de tareas para la preparación de entrevistas"""
+		return Crew(
+			agents=self.agents,  # Agentes creados automáticamente por el decorador @agent
+			tasks=self.tasks,    # Tareas creadas automáticamente por el decorador @task
+			process=Process.sequential,
 			verbose=True
 		)
-		return crew

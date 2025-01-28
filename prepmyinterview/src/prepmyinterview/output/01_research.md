@@ -1,21 +1,11 @@
 # Preguntas para la Entrevista
 
 ## Preguntas Técnicas  
-1. **¿Puedes describir un proyecto donde hayas utilizado técnicas de análisis de datos avanzadas?**  
-   Se busca evaluar la capacidad del candidato para aplicar su conocimiento en situaciones prácticas y ver ejemplos concretos de su trabajo.
-
-2. **¿Qué experiencia tienes trabajando con las librerías de Python como Pandas, Pyspark, xgboost y scikit-learn? Podrías darnos un ejemplo específico de cómo has utilizado alguna de estas librerías en un proyecto real?**  
-   Esta pregunta está diseñada para evaluar el nivel de dominio técnico del candidato en herramientas fundamentales para la Ciencia de Datos.
-
-3. **¿Cuál es tu experiencia trabajando con SQL? ¿Puedes contarnos sobre una consulta compleja que hayas realizado y qué información lograbas extraer de esa consulta?**  
-   Esta pregunta permite entender la habilidad del candidato para trabajar con bases de datos y extraer información relevante.
+1. ¿Puedes describir un proyecto en el que hayas utilizado BeautifulSoup o Selenium para realizar web scraping? ¿Cuáles fueron los principales desafíos y cómo los abordaste?  
+2. ¿Qué experiencia tienes trabajando con APIs RESTful? ¿Podrías explicarnos cómo integrarías datos desde una API externa en una aplicación existente?  
+3. ¿Cuál ha sido tu papel en proyectos que requieren la integración de datos de diversas fuentes? Específicamente, menciona tu experiencia con datos de primera y segunda parte y cómo manejaste los desafíos asociados.  
 
 ## Preguntas sobre Proyectos  
-1. **Cuéntame sobre la implementación de un modelo de aprendizaje automático que hayas llevado a cabo. ¿Qué pasos seguiste desde la recopilación de datos hasta la implementación final?**  
-   Aquí se busca conocer el proceso que el candidato sigue para asegurar el éxito en la implementación de modelos de machine learning.
-
-2. **Descríbenos una situación en la que te enfrentas a un problema inesperado durante un proyecto de Ciencia de Datos. ¿Cómo lo resolviste y qué aprendiste de esa experiencia?**  
-   Esta pregunta se centra en la capacidad del candidato para resolver problemas y aprender de los desafíos.
-
-3. **¿Qué metodología has utilizado en tus proyectos anteriores, especialmente en entornos ágiles como SCRUM o KANBAN? ¿Cómo te ha ayudado esta metodología en la finalización de tus proyectos?**  
-   Esto ayuda a evaluar si el candidato tiene experiencia y comodidad trabajando en entornos dinámicos y cómo eso impacta su rendimiento y colaboración.
+1. Describe una situación en la que diseñaste y construiste una solución de scraping escalable. ¿Qué herramientas y metodologías utilizaste, y cómo mediste el éxito de la implementación?  
+2. Relátanos un caso donde tuviste que resolver un problema relacionado con el scraping de datos que afectaba la calidad de los datos recolectados. ¿Cuál fue el problema y qué pasos seguiste para solucionar dicho inconveniente?  
+3. ¿Cómo aplicas metodologías ágiles en tus proyectos de desarrollo? Proporciónanos un ejemplo específico de cómo gestionaste tareas y entregables en un entorno de trabajo en equipo multinacional.
